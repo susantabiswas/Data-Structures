@@ -1,4 +1,4 @@
-///To count the no. of nodes in a list using iterative method
+///To count the no. of nodes in a singly Linked list using iterative method
 
 
 #include<iostream>

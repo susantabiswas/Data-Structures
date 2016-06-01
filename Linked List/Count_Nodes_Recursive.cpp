@@ -1,4 +1,4 @@
-///To count the no. of nodes in a list using recursion
+///To count the no. of nodes in a singly Linked list using recursion
 
 #include<iostream>
 using namespace std;
