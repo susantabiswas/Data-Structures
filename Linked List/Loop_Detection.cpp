@@ -75,14 +75,19 @@ bool List::DetectLoop()
 {
 	Node *slowptr=head;
 	Node *fastptr=head;
-	
-	//If the list is empty
-	while(slowptr!=NULL && fastptr!=NULL)
-	{	slowptr=slowptr->next;
+
+
+	while(slowptr!=NULL && fastptr!=NULL &&fastptr->next!=NULL)
+	{
+		//fastptr moves twice as fast as slowptr
+		slowptr=slowptr->next;
 		fastptr=fastptr->next->next;
+
+		//if a loop is there ,they are bound to meet
 		if(slowptr==fastptr)
 			return true;
 	}
+
 	return false;
 }
 
@@ -90,31 +95,33 @@ void List::Display()						//for displaying the list
 {
 	cout << "\nContents of List:\n";
 	Node*temp = head;
-	while (temp != NULL)
+	while (temp != NULL )
 	{
 		cout << temp->data << " ";
 		temp = temp->next;
 	}
+	cout<<endl;
 }
 
 int main()
 {
-	List list1,list2,list3;
+	List list1;
 
 	//list 1 : 5->10->15
 	list1.InsertBegin(15);
 	list1.InsertBegin(10);
 	list1.InsertBegin(5);
+	//Creating a loop
+	//list1.head->next->next->next=list1.head->next;
+	cout<<list1.head->next;
+	list1.Display();
 
-	//list 1 : 2->3->20
-	list2.InsertBegin(20);
-	list2.InsertBegin(3);
-	list2.InsertBegin(2);
+	bool result=list1.DetectLoop();
 
-    list1.Display();
-	list2.Display();
+	if(result)
+    	cout<<"Loop present\n";
+    else
+    	cout<<"No loops present\n";
 
-    list3.head=list2.Merge(&list1.head,&list2.head);
-    list3.Display();
 	return 0;
 }
