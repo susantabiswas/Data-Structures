@@ -112,9 +112,9 @@ int main()
 	list1.InsertBegin(10);
 	list1.InsertBegin(5);
 	//Creating a loop
-	//list1.head->next->next->next=list1.head->next;
-	cout<<list1.head->next;
-	list1.Display();
+	list1.head->next->next->next=list1.head->next;
+	//cout<<list1.head->next;
+
 
 	bool result=list1.DetectLoop();
 
