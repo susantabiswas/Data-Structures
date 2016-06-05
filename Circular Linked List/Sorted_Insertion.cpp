@@ -77,11 +77,21 @@ void CircularList::InsertSorted(int dataItem)
 			node->next=head;
 			return;
 		}
+		//when data lies before head node
 		if(head->data>dataItem)
 		{
-			InsertBegin(dataItem);
+			//insert the new node in the second position
+			//swap the data between the nodes
+			int swap=head->data;
+			head->data=node->data;
+			node->data=swap;
+
+			node->next=head->next;
+			head->next=node;
+
 			return;
 		}
+		//when data lies in the end or somewhere in between
 		//start traversal of list till right position
 		Node *temp=head;
 		while(temp->next!=head && temp->next->data<dataItem)
