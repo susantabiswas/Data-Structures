@@ -27,8 +27,7 @@ public:
 	void InsertBegin(int);
 	void sum(Node*,Node*);
 	void Display();
-	void InsertEnd(int dataItem);
-
+	
 };
 
 
@@ -55,27 +54,7 @@ Node* List::create(int localData)			//for creating a node
 
 }
 
-void List::InsertEnd(int dataItem)				//for inserting the node in the end of the list
-{
-	Node *node = create(dataItem);
-	if (node != NULL)
-	{
-		if (head == NULL)
-		{
-			head = node;
-		}
-		else
-		{
-			Node*temp = head;
-			while (temp->next!=NULL)
-			{
-				temp = temp->next;
-			}
-			temp->next = node;
-		}
-	}
 
-}
 void List::InsertBegin(int dataItem)			//for inserting the node in the of Beginning list
 {
 	Node *node = create(dataItem);
