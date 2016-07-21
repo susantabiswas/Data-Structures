@@ -20,7 +20,7 @@ void quickSort(int *arr,int l,int h)
 			++i;
 			//traverse till there is an element lesser or equal to pivot
 		while(arr[j]>pivot)
-			++j;
+			--j;
 		if(i<=j)
 		{	//swap the elements
 			swap=arr[i];
