@@ -80,9 +80,6 @@ void correctSwapped(Node *root,Node* &first,Node* &middle,Node* &last)
 					last=root;
 			}
 		}
-	}
-	else
-		return;
 
 	correctSwapped(root->right,first,middle,last);
 }
